@@ -16,8 +16,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Add this BEFORE your partition_pdf call
-os.environ['TESSDATA_PREFIX'] = r'C:\Users\PRUTHVIRAJ\AppData\Local\Programs\Tesseract-OCR\tessdata'
+
+os.environ['TESSDATA_PREFIX'] = r'C:\Your-Tessdata-path\Tesseract-OCR\tessdata'
 
 
 def partition_document(file_path: str):
@@ -248,4 +248,5 @@ if __name__ == '__main__':
     chunks = create_chunks_by_title(elements)
     processed_chunks = summarise_chunks(chunks)
     json_data = export_chunks_to_json(processed_chunks)
+
     db = create_vector_store(processed_chunks)
